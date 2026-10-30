@@ -16,10 +16,10 @@ QUOTES = [
 ]
 
 
-# A route: a method (GET), a path, a function. What it returns becomes JSON.
+                                                                            
 @app.get("/api/quotes")
 def list_quotes(author: str | None = None) -> list[dict]:
-    # A parameter not in the path comes from the query: /api/quotes?author=...
+                                                                              
     if author is None:
         return QUOTES
     result = []
@@ -29,8 +29,8 @@ def list_quotes(author: str | None = None) -> list[dict]:
     return result
 
 
-# {quote_id} in the path becomes a parameter; the annotation int converts it,
-# and /api/quotes/abc is refused with a 422 before the function runs.
+                                                                             
+                                                                     
 @app.get("/api/quotes/{quote_id}")
 def read_quote(quote_id: int) -> dict:
     for quote in QUOTES:

@@ -10,8 +10,8 @@ from e12_notes_api import create_app
 from fastapi.testclient import TestClient
 
 
-# tmp_path: a new empty folder for each test, deleted afterwards. The real
-# notes.json is never touched, and no test depends on another.
+                                                                          
+                                                              
 @pytest.fixture
 def notes_file(tmp_path):
     path = tmp_path / "notes.json"

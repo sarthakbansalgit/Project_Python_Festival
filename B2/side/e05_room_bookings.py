@@ -26,7 +26,7 @@ def check_booking(bookings: list[dict], new: dict) -> None:
 
 
 def book(bookings: list[dict], new: dict) -> None:
-    check_booking(bookings, new)  # if it raises, the next line never runs
+    check_booking(bookings, new)                                          
     bookings.append(new)
 
 
@@ -36,7 +36,7 @@ def load(path: Path) -> list[dict]:
         with open(path, encoding="utf-8") as file:
             return json.load(file)
     except FileNotFoundError:
-        return []  # no file yet: no booking yet
+        return []                               
     except json.JSONDecodeError as error:
         raise ValueError(f"{path} is damaged (line {error.lineno}).") from None
 
@@ -44,7 +44,7 @@ def load(path: Path) -> list[dict]:
 def save(bookings: list[dict], path: Path) -> None:
     path.parent.mkdir(exist_ok=True)
     with open(path, "w", encoding="utf-8") as file:
-        # ensure_ascii=False keeps "é" readable, indent=2 keeps the file readable.
+                                                                                  
         json.dump(bookings, file, ensure_ascii=False, indent=2)
 
 
@@ -66,7 +66,7 @@ def main() -> None:
     save(bookings, OUTPUT)
     print(f"{len(load(OUTPUT))} bookings saved in {OUTPUT}")
 
-    # A damaged file gives a sentence, not a traceback.
+                                                       
     OUTPUT.write_text("[{", encoding="utf-8")
     try:
         load(OUTPUT)

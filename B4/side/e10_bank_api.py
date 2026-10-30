@@ -15,7 +15,7 @@ app = FastAPI(title="Bank")
 bank = Bank()
 
 
-# The shape of a JSON body. FastAPI refuses another shape with a 422 by itself.
+                                                                               
 class OwnerIn(BaseModel):
     owner: str
 
@@ -24,7 +24,7 @@ class AmountIn(BaseModel):
     amount: int
 
 
-# One handler turns every error of the family into a status: no try in routes.
+                                                                              
 STATUS = {UnknownAccountError: 404, RefusedError: 409}
 
 

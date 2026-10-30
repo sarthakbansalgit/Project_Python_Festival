@@ -14,8 +14,8 @@ ITEMS = [
 ]
 
 
-# A function receives what it needs as parameters and returns its result.
-# It prints nothing: the caller decides what to do with the result.
+                                                                         
+                                                                   
 def total_price(items: list[dict]) -> float:
     total = 0.0
     for item in items:
@@ -31,14 +31,14 @@ def items_in_aisle(items: list[dict], aisle: str) -> list[dict]:
     return result
 
 
-# Functions that print: only for the command line, at the end of the chain.
+                                                                           
 def show(items: list[dict]) -> None:
     for item in items:
         print(f"{item['name']:<8} {item['price']:>5.2f} EUR")
 
 
 def main() -> None:
-    # sys.argv: the words typed after the file name, e.g. ["aisle", "fruit"].
+                                                                             
     arguments = sys.argv[1:]
     if len(arguments) == 0:
         show(ITEMS)

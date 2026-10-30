@@ -1,5 +1,5 @@
-# Step 09, on the side: one abstract family, three kinds, no "if kind ==".
-# Run from the track folder: uv run python B4/side/e09_messages.py
+                                                                          
+                                                                  
 
 from abc import ABC, abstractmethod
 
@@ -7,7 +7,7 @@ from abc import ABC, abstractmethod
 class Message(ABC):
     """What every message has. Message itself cannot be created."""
 
-    kind = "message"  # each subclass replaces it
+    kind = "message"                             
 
     def __init__(self, recipient: str, text: str) -> None:
         if text.strip() == "":
@@ -20,7 +20,7 @@ class Message(ABC):
         """Each kind must say how much it costs."""
 
     def summary(self) -> str:
-        # Written once, here: it calls cost(), whichever kind self is.
+                                                                      
         return f"{self.kind} to {self.recipient}: {self.cost():.2f} EUR"
 
 
@@ -35,7 +35,7 @@ class Sms(Message):
     kind = "sms"
 
     def cost(self) -> float:
-        parts = (len(self.text) - 1) // 160 + 1  # 160 characters per SMS
+        parts = (len(self.text) - 1) // 160 + 1                          
         return 0.08 * parts
 
 
@@ -43,14 +43,14 @@ class Letter(Message):
     kind = "letter"
 
     def __init__(self, recipient: str, text: str, registered: bool = False) -> None:
-        super().__init__(recipient, text)  # the common part, then its own
+        super().__init__(recipient, text)                                 
         self.registered = registered
 
     def cost(self) -> float:
         return 5.36 if self.registered else 1.39
 
 
-# From data: the "kind" field chooses the class, in one place only.
+                                                                   
 KINDS = {"email": Email, "sms": Sms, "letter": Letter}
 
 
@@ -60,7 +60,7 @@ def message_from_dict(data: dict) -> Message:
     message_class = KINDS[data["kind"]]
     options = dict(data)
     del options["kind"]
-    return message_class(**options)  # ** passes the dict as named arguments
+    return message_class(**options)                                         
 
 
 outbox = [
@@ -72,7 +72,7 @@ outbox = [
 ]
 total = 0.0
 for message in outbox:
-    print(message.summary())  # each object answers with its own cost()
+    print(message.summary())                                           
     total += message.cost()
 print(f"Total: {total:.2f} EUR")
 

@@ -28,7 +28,7 @@ def create_app(path: Path) -> FastAPI:
     def save(notes: list[str]) -> None:
         path.write_text(json.dumps(notes, ensure_ascii=False), encoding="utf-8")
 
-    # The routes are defined inside create_app: they use its `path`.
+                                                                    
     @app.get("/api/notes")
     def list_notes() -> list[str]:
         return load()
@@ -53,5 +53,5 @@ def create_app(path: Path) -> FastAPI:
     return app
 
 
-# For uvicorn: the real file. The tests never use it.
+                                                     
 app = create_app(Path("B5/side/notes.json"))

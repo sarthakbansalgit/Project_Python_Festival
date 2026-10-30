@@ -11,7 +11,7 @@ from fastapi.testclient import TestClient
 
 TRACK = Path(__file__).parent.parent
 
-# Scripts and what to type for them.
+                                    
 SCRIPTS = {
     "B1/side/e00_playlist.py": "",
     "B1/side/e01_library.py": "",

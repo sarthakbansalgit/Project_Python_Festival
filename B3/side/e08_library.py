@@ -31,7 +31,7 @@ class Library:
 
     def __init__(self, name: str) -> None:
         self.name = name
-        self.books: dict[str, Book] = {}  # by title: found in one step
+        self.books: dict[str, Book] = {}                               
 
     def add(self, book: Book) -> None:
         if book.title in self.books:

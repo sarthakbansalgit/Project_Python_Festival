@@ -10,7 +10,7 @@ import pytest
 from e08_library import Book, Library
 
 
-# A fixture: a fresh library for every test that asks for it by name.
+                                                                     
 @pytest.fixture
 def library() -> Library:
     library = Library("Test library")
@@ -30,7 +30,7 @@ def test_borrow(library):
     assert library.get("Emma").borrowed_by == "lou"
 
 
-# A rule is tested by breaking it: pytest.raises checks that the error comes.
+                                                                             
 def test_a_book_cannot_be_borrowed_twice(library):
     library.borrow("Emma", "lou")
     with pytest.raises(ValueError, match="already borrowed"):
@@ -42,4 +42,4 @@ def test_two_books_per_reader(library):
     library.borrow("Dune", "lou")
     with pytest.raises(ValueError):
         library.borrow("Persuasion", "lou")
-    assert library.get("Persuasion").borrowed_by == ""  # nothing changed
+    assert library.get("Persuasion").borrowed_by == ""                   

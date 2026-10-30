@@ -18,8 +18,8 @@ def warmest(readings: dict[str, float]) -> str:
     return best
 
 
-# __name__ is "__main__" only when this file is the one that was run.
-# When another file imports it, this block is skipped.
+                                                                     
+                                                      
 if __name__ == "__main__":
     print(to_fahrenheit(20))
     print(warmest({"Brest": 14.5, "Nice": 22.0}))

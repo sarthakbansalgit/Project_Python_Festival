@@ -1,5 +1,5 @@
-# Step 06, on the side: using the functions of another file of the folder.
-# Run from the track folder: uv run python B3/side/e06_weather_report.py
+                                                                          
+                                                                        
 
 from e06_temperatures import to_fahrenheit, warmest
 

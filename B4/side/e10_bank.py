@@ -4,7 +4,7 @@ uv run python B4/side/e10_bank.py
 """
 
 
-# A family of errors: a caller can catch them all (BankError) or one of them.
+                                                                             
 class BankError(Exception):
     """Every error of this module."""
 
@@ -20,7 +20,7 @@ class RefusedError(BankError):
 class Account:
     def __init__(self, owner: str) -> None:
         self.owner = owner
-        self._balance = 0  # "_": not for the outside, use the methods
+        self._balance = 0                                             
         self._history: list[int] = []
 
     @property
@@ -65,7 +65,7 @@ if __name__ == "__main__":
     bank = Bank()
     account = bank.open("Lou")
     account.deposit(50)
-    account.history.append(1_000_000)  # changes a copy, not the account
+    account.history.append(1_000_000)                                   
     print(account.balance, account.history)
     try:
         account.balance = 1_000_000
@@ -74,5 +74,5 @@ if __name__ == "__main__":
     for action in [lambda: account.withdraw(80), lambda: bank.get("Zoé")]:
         try:
             action()
-        except BankError as error:  # one except for the whole family
+        except BankError as error:                                   
             print(f"{type(error).__name__}: {error}")
